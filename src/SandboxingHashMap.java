@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class SandboxingMap {
+public class SandboxingHashMap {
     public static void main(String[] args){
         Map exampleHashMap = new HashMap();
         System.out.println("The current size of the hashmap is: " + exampleHashMap.size());
@@ -9,13 +9,11 @@ public class SandboxingMap {
         exampleHashMap.put("Greg Brown"   , "24 years old");
         exampleHashMap.put("Lloyd Brown"  , "26 years old");
         exampleHashMap.put("Julie Brown"  , "28 years old");
-//        exampleHashMap.put("Diana Brown"  , "30 years old");
-//        exampleHashMap.put("Keith Brown"  , "31 years old");
-//        exampleHashMap.put("Mark Brown"  , "60 years old");
 
         // Why does it print out in a weird order? Greg > Nathan > Lloyd > Julie? That doesn't make any sense.
         System.out.println("The current contents of the hashmap are: " + exampleHashMap);
-bas
+        System.out.println("A collection view of the values for this hashmap looks like this: " + exampleHashMap.values());
+
         System.out.println("The current size of the hashmap is: " + exampleHashMap.size());
 
         System.out.println("Lloyd Brown's age: " + exampleHashMap.get("Lloyd Brown"));
@@ -41,9 +39,9 @@ bas
         System.out.println("The value of the key 'Julie Brown' after replacing it: " + exampleHashMap.get("Julie Brown"));
 
         System.out.println("The contents of the hashmap prior to removing a key: " + exampleHashMap);
-        System.out.println("Another view: " + exampleHashMap.keySet());
+        System.out.println("Viewing just the keys using the .keySet method: " + exampleHashMap.keySet());
         exampleHashMap.remove("Mark Brown");
-        System.out.println("The contents of the hashmap after removing a key: " + exampleHashMap);
+        System.out.println("The contents of the hashmap after removing 'Mark Brown': " + exampleHashMap);
         System.out.println("The keyset after removing a particular key: " + exampleHashMap.keySet());
         // How could I iterate through a keyset? I just want to see each key and its associated value, but in a different format.
 
