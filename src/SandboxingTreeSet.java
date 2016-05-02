@@ -91,15 +91,20 @@ public class SandboxingTreeSet {
 // Nasty Paths
         System.out.println("NASTY PATHS");
 
+        System.out.println("Contents of the TreeSet prior to starting Nasty Paths: " + multipleCharTypeTreeSet);
 // Using floor method on a value that doesn't exist
+        System.out.println("Contents of the TreeSet prior to starting Nasty Paths: " + multipleCharTypeTreeSet);
+// Trying to remove a value that doesn't exist
+// Trying to use pollFirst or pollLast if the TreeSet is empty
+// Seeing if the TreeSet will take values other than Strings (negative integers, integers, keywords?)
+// Trying to add an element that already exists in the TreeSet
+// Can I trick floor or ceiling methods if all the elements are the same? // Wait, that won't work, because I can't have duplicates. Lol.
+// Try using lower on the lowest element
+// Try using higher on the highest element
 //
 //
 //
-// Using floor method on a value that doesn't exist
-// Using floor method on a value that doesn't exist
-// Using floor method on a value that doesn't exist
-// Using floor method on a value that doesn't exist
-// Using floor method on a value that doesn't exist
-
+//
+//
     }
 }
