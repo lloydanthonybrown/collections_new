@@ -3,7 +3,7 @@ import java.util.TreeSet;
 
 public class SandboxingTreeSet {
     public static void main(String[] args){
-        TreeSet multipleCharTypeTreeSet= new TreeSet();
+        TreeSet multipleCharTypeTreeSet = new TreeSet();
 
 // Happy Paths
         System.out.println("HAPPY PATHS");
@@ -88,19 +88,138 @@ public class SandboxingTreeSet {
 // tailset
         System.out.println("Results of the 'tailset' method, using '1': " + multipleCharTypeTreeSet.tailSet("1"));
 
-// Nasty Paths
-        System.out.println("NASTY PATHS");
+// Nasty Paths ********************************************************************************************************
+        System.out.println("NASTY PATHS *****************************************************************************");
 
         System.out.println("Contents of the TreeSet prior to starting Nasty Paths: " + multipleCharTypeTreeSet);
+
 // Using floor method on a value that doesn't exist
-        System.out.println("Contents of the TreeSet prior to starting Nasty Paths: " + multipleCharTypeTreeSet);
+        System.out.println("Trying to use floor method on a nonexistent value: ");
+        try {
+            multipleCharTypeTreeSet.floor("fruit loops");
+//            System.out.println("No problem!"); // I won't repeat this. Would it do the right thing? Or print, no matter the error?
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't use a floor method on a nonexistent value.");
+        }
+
 // Trying to remove a value that doesn't exist
+        System.out.println("Trying to remove a nonexistent value.");
+        try {
+            multipleCharTypeTreeSet.remove("fruit loops");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't remove a nonexistent value.");
+        }
+
+        TreeSet nastyPolling = new TreeSet();
 // Trying to use pollFirst or pollLast if the TreeSet is empty
+        System.out.println("Trying to remove a nonexistent value using pollFirst.");
+        try {
+            nastyPolling.pollFirst();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't remove a nonexistent value using pollFirst.");
+        }
+
+        System.out.println("Trying to remove a nonexistent value using pollLast.");
+        try {
+            nastyPolling.pollLast();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't remove a nonexistent value using pollLast.");
+        }
+
 // Seeing if the TreeSet will take values other than Strings (negative integers, integers, keywords?)
+        System.out.println("Testing different types of values: keywords.");
+        try {
+//            multipleCharTypeTreeSet.add(notAString); // I don't think this works because it's looking for a variable with this particular name.
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't use a floor method on a nonexistent value.");
+        }
+
+        System.out.println("Testing different types of values: integers.");
+        try {
+            multipleCharTypeTreeSet.add(4);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't add an integer to this TreeSet.");
+        }
+
+        System.out.println("Bacon");
+        System.out.println("Eggs");
+        System.out.println("Hashbrowns");
+
+        System.out.println("Testing different types of values: negative integers.");
+        try {
+            multipleCharTypeTreeSet.add(-7);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't add a negative integer to this TreeSet.");
+        }
+
 // Trying to add an element that already exists in the TreeSet
+        System.out.println("What the TreeSet contains before adding fruit loops: " + multipleCharTypeTreeSet);
+        multipleCharTypeTreeSet.add("fruit loops");
+        System.out.println("What the TreeSet contains after adding fruit loops: " + multipleCharTypeTreeSet);
+
+        System.out.println("Trying to add an element that already exists (duplication).");
+
+        try {
+            multipleCharTypeTreeSet.add("fruit loops");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't add a duplicate String to this TreeSet.");
+        }
+
 // Can I trick floor or ceiling methods if all the elements are the same? // Wait, that won't work, because I can't have duplicates. Lol.
+        System.out.println("Trying to return a nonexistent value with ceiling.");
+        try {
+            multipleCharTypeTreeSet.ceiling("very important line"); // it should be returning "null", but it's not returning anything. Why?
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't use a ceiling method on a nonexistent value.");
+        }
+
+        System.out.println("Trying to return a nonexistent value with floor.");
+        try {
+            multipleCharTypeTreeSet.floor("$_pancakes");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't use a floor method on a nonexistent value.");
+        }
+
 // Try using lower on the lowest element
+        System.out.println("Trying to use lower on the lowest element.");
+        try {
+            multipleCharTypeTreeSet.lower("$");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't use a lower method on the lowest element.");
+        }
+
 // Try using higher on the highest element
+        System.out.println("Trying to use higher on the highest element.");
+        try {
+            multipleCharTypeTreeSet.higher("shooting stars");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't use a higher method on the highest element.");
+        }
+
 //
 //
 //
