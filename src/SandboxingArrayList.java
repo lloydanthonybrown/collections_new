@@ -4,23 +4,28 @@ import java.util.Scanner;
 public class SandboxingArrayList {
     public static void main(String[] args){
 
-        Scanner userInput = new Scanner(System.in);
-        int anInteger;
-        int count = 0;
+//        Scanner userInput = new Scanner(System.in);
+//        int anInteger;
+//        int count = 0;
         ArrayList<Integer> myIntegerArrayList = new ArrayList<Integer>();
 
         // Play with an integer ArrayList
         System.out.println("The current size of the array: " + myIntegerArrayList.size());
-        System.out.println("Enter 5 integers.");
-        for (int i=0; i<5; i++){
-            System.out.println("Integer " + (count + 1) + ":");
-            anInteger = userInput.nextInt();
-            // Add the user input to the ArrayList
-            myIntegerArrayList.add(anInteger);
-            System.out.println("The size of the array after adding this integer: " + myIntegerArrayList.size());
-            count ++;
+//        System.out.println("Enter 5 integers.");
+//        for (int i=0; i<5; i++){
+//            System.out.println("Integer " + (count + 1) + ":");
+//            anInteger = userInput.nextInt();
+//            // Add the user input to the ArrayList
+//            myIntegerArrayList.add(anInteger);
+//            System.out.println("The size of the array after adding this integer: " + myIntegerArrayList.size());
+//            count ++;
 
-        }
+    myIntegerArrayList.add(12);
+    myIntegerArrayList.add(17);
+    myIntegerArrayList.add(4);
+    myIntegerArrayList.add(10);
+    myIntegerArrayList.add(11);
+    myIntegerArrayList.add(24);
 
         System.out.println("The ArrayList contains this: " + myIntegerArrayList);
         System.out.println("The ending size of the array: " + myIntegerArrayList.size());
@@ -70,8 +75,70 @@ public class SandboxingArrayList {
         myIntegerArrayList.set(0, 87);
         System.out.println("What the array currently looks like: " + myIntegerArrayList);
 
+        // insert at a negative index
+        // Result: gives me an indexoutofboundsexception.
+        try {
+            myIntegerArrayList.set(-1, 43);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't set a negative index in an ArrayList.");
+        }
+
+        // insert at an index way past the end
+        // Result: returns an indexoutofboundsexception.
+        System.out.println("Contents of the ArrayList: " + myIntegerArrayList);
+        try {
+            myIntegerArrayList.set(500, 200);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't add an integer on the 500th index.");
+        }
+        System.out.println("Contents of the ArrayList: " + myIntegerArrayList);
+
+        // Get for negative index.
+        // Result: returns an indexoutofboundsexception.
+        try {
+            myIntegerArrayList.get(-4);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't retrieve an integer from a negative index.");
+        }
+
+        // Get for index way past the end of the ArrayList
+        // Result: returns an indexoutofboundsexception.
+        try {
+            myIntegerArrayList.get(200);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("The 200th index is not valid in this ArrayList yet.");
+        }
+
+        // what about remove for these two cases?
+        // Result: returns an indexoutofboundsexception.
+        try {
+            myIntegerArrayList.remove(-17);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't remove a negative index.");
+        }
+
+        // Try to remove an index that is way out of bounds.
+        // Result: returns an indexoutofboundsexception.
+        try {
+            myIntegerArrayList.remove(435);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't remove an integer from an index so far beyond the current scope of the ArrayList.");
+        }
+
         // Try to create an ArrayList with a negative size
-        System.out.println("Trying to create an Arraylist with a negative size.");
+//        System.out.println("Trying to create an Arraylist with a negative size.");
 //        try{
 //            ArrayList myStringArrayList = new ArrayList(-4);
 //        }

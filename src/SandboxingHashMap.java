@@ -90,7 +90,6 @@ public class SandboxingHashMap {
             System.out.println("You can't replace a value for a non-existent key.");
         }
 
-
         // Try to change the value of a current key.
         try {
             exampleHashMap.put("Lloyd Brown", "99 years old");
@@ -101,7 +100,23 @@ public class SandboxingHashMap {
         }
 
         // Try to change a key.
+        try {
+            exampleHashMap.put("Lloyd Green", "88 years old");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't change a current key.");
+        }
 
+        // What if the key is null? (put)
+        // Result: Returned "null" for the output.
+        try {
+            exampleHashMap.put(null, "31 years old");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't have a null key.");
+        }
 
 //        for (int i = 0; i < myHashMap.size(); i++)
 

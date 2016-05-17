@@ -220,6 +220,25 @@ public class SandboxingTreeSet {
             System.out.println("You can't use a higher method on the highest element.");
         }
 
+        // try to add null, try to remove null
+        // returned NullPointerException
+        try {
+            multipleCharTypeTreeSet.add(null);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't add a null.");
+        }
+
+        // try to remove null
+        // returned NullPointerException
+        try {
+            multipleCharTypeTreeSet.remove(null);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("You can't remove a null.");
+        }
 //
 //
 //
